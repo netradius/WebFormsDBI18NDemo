@@ -16,7 +16,7 @@
         
         protected override void InitializeCulture()
         {
-            if (Request.Form["ListBox1"] != null)
+            if (Request.Form["ListBox1"] != null && !Request.Form["ListBox1"].Equals(""))
             {
                 String selectedLanguage = Request.Form["ListBox1"];
                 UICulture = selectedLanguage;
