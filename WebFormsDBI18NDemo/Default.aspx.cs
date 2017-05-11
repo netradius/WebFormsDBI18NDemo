@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -11,7 +12,8 @@ namespace WebFormsDBI18NDemo
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            System.Diagnostics.Debug.WriteLine("Current locale: " + Thread.CurrentThread.CurrentCulture.Name);
+            locale.Text = Thread.CurrentThread.CurrentCulture.Name;
         }
     }
 }

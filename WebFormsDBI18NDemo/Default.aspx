@@ -8,6 +8,7 @@
     <title>CMS Demo</title>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="styles/styles.css" />
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -23,7 +24,6 @@
                
                 Thread.CurrentThread.CurrentCulture = CultureInfo.CreateSpecificCulture(selectedLanguage);
                 Thread.CurrentThread.CurrentUICulture = new CultureInfo(selectedLanguage);
-
             }
             base.InitializeCulture();
         }
@@ -38,11 +38,12 @@
                 <div class="col">
                     <p class="lead">Language/Region Selections</p>
                     <form id="form1" runat="server">
-                        <asp:ListBox ID="ListBox1" CssClass="form-control" runat="server">
-                            <asp:ListItem Value="" Selected="True">Default Browser Locale</asp:ListItem>
+                        <asp:ListBox ID="ListBox1" CssClass="form-control locale-selector" runat="server">
+                            <asp:ListItem Value="">Default Locale</asp:ListItem>
                             <asp:ListItem Value="en-US">English - United States - en-US</asp:ListItem>
                             <asp:ListItem Value="es-US">Espanol - United States - es-US</asp:ListItem>
-                            <asp:ListItem Value="es">Espanol - </asp:ListItem>
+                            <asp:ListItem Value="es">Espanol - es</asp:ListItem>
+                            <asp:ListItem Value="en-GB">English - United Kingdom - en-GB</asp:ListItem>
                         </asp:ListBox>
                         <br />
                         <asp:Button ID="Button1" runat="server" CssClass="btn btn-primary" Text="Set Language" meta:resourcekey="Button1" />
@@ -53,7 +54,10 @@
                     <p class="lead">Output</p>
                     <div class="card">
                         <div class="card-block">
+                            <asp:Label ID="keyTitle" runat="server" Font-Bold="true" Text="Message Key Value: "/>
                             <asp:Label ID="Label1" runat="server" Text="<%$ Resources:CommonTerms, helloWorld %>" />
+                            <br />
+                            <asp:Label ID="localTitle" runat="server" Font-Bold="true" Text="Current Browser Locale: "/><asp:Label ID="locale" runat="server" Text="locale" />
                         </div>
                     </div>
                 </div>

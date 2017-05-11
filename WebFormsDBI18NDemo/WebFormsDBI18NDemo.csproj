@@ -118,6 +118,7 @@
     <Content Include="Global.asax" />
     <Content Include="scripts\ai.0.22.9-build00167.js" />
     <Content Include="scripts\ai.0.22.9-build00167.min.js" />
+    <Content Include="styles\styles.css" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>

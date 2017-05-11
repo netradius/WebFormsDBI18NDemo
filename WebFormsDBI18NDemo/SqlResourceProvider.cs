@@ -63,19 +63,6 @@ namespace WebFormsDBI18NDemo
             }
 
             object value = GetResourceCache(cultureName)[resourceKey];
-            //if (value == null)
-            //{
-            //    // resource is missing for current culture, use default
-            //    SqlResourceHelper.AddResource(resourceKey,
-            //            _virtualPath, _className, cultureName);
-            //    value = GetResourceCache(null)[resourceKey];
-            //}
-            //if (value == null)
-            //{
-            //    // the resource is really missing, no default exists
-            //    SqlResourceHelper.AddResource(resourceKey,
-            //         _virtualPath, _className, string.Empty);
-            //}
             return value;
         }
         IResourceReader IResourceProvider.ResourceReader

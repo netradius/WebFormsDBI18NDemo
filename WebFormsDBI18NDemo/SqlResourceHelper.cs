@@ -114,54 +114,6 @@ namespace WebFormsDBI18NDemo
             return resources;
         }
 
-        //public static void AddResource(string resource_name,
-        //       string virtualPath, string className, string cultureName)
-        //{
-        //    SqlConnection con =
-        //      new SqlConnection(System.Configuration.ConfigurationManager.
-        //      ConnectionStrings["SqlResource"].ToString());
-        //    SqlCommand com = new SqlCommand();
-        //    StringBuilder sb = new StringBuilder();
-        //    sb.Append("insert into Resource " +
-        //              "(resource_name ,resource_value," +
-        //              "resource_type,culture_code ) ");
-        //    sb.Append(" values (@resource_name ,@resource_value," +
-        //              "@resource_object,@culture_name) ");
-        //    com.CommandText = sb.ToString();
-        //    com.Parameters.AddWithValue("@resource_name", resource_name);
-        //    com.Parameters.AddWithValue("@resource_value", resource_name +
-        //                                " * DEFAULT * " +
-        //                                (String.IsNullOrEmpty(cultureName) ?
-        //                                string.Empty : cultureName));
-        //    com.Parameters.AddWithValue("@culture_name",
-        //        (String.IsNullOrEmpty(cultureName) ? SqlString.Null : cultureName));
-
-        //    string resource_object = "UNKNOWN **ERROR**";
-        //    if (!String.IsNullOrEmpty(virtualPath))
-        //    {
-        //        resource_object = virtualPath;
-        //    }
-        //    else if (!String.IsNullOrEmpty(className))
-        //    {
-        //        resource_object = className;
-        //    }
-        //    com.Parameters.AddWithValue("@resource_object", resource_object);
-
-        //    try
-        //    {
-        //        com.Connection = con;
-        //        con.Open();
-        //        com.ExecuteNonQuery();
-        //    }
-        //    catch (Exception e)
-        //    {
-        //        throw new Exception(e.ToString());
-        //    }
-        //    finally
-        //    {
-        //        if (con.State == ConnectionState.Open)
-        //            con.Close();
-        //    }
-        //}
+        
     }
 }
