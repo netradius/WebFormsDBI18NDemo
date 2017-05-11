@@ -8,15 +8,21 @@ using System.Data.SqlTypes;
 using System.Linq;
 using System.Text;
 using System.Web;
+using log4net;
 
 namespace WebFormsDBI18NDemo
 {
     internal static class SqlResourceHelper
     {
+        static ILog log = LogManager.GetLogger(typeof(SqlResourceProvider));
+
         public static IDictionary GetResources(string virtualPath,
           string className, string cultureName,
           bool designMode, IServiceProvider serviceProvider)
         {
+            if (log.IsDebugEnabled) {
+                log.Debug("Virtual Path: " + virtualPath + " Class Name: " + className + " Culture Name: " + cultureName);
+            }
             SqlConnection con = new SqlConnection(
               System.Configuration.ConfigurationManager.
               ConnectionStrings["SqlResource"].ToString());
