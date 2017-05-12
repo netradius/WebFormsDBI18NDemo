@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Specialized;
 
 namespace WebFormsDBI18NDemo
@@ -28,13 +24,12 @@ namespace WebFormsDBI18NDemo
             }
         }
 
-        public IDictionary GetResourceCache(string cultureName)
+        public IDictionary GetResourceCache(string virtualPath, string className, string cultureName)
         {
             IDictionary cache = (IDictionary)_caches[cultureName];
             if (cache == null)
             {
-                // TODO do sql lookup here
-                cache = new HybridDictionary();
+                cache = SqlResourceHelper.GetResources(virtualPath, className, cultureName, false, null);
                 cache[cultureName] = cache;
             }
             return cache;
