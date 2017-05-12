@@ -58,10 +58,6 @@ namespace WebFormsDBI18NDemo
 
         object IResourceProvider.GetObject(string resourceKey, CultureInfo culture)
         {
-            if (log.IsDebugEnabled)
-            {
-                log.Debug("Getting resource provider for resource key " + resourceKey + " and culture " + culture?.ToString());
-            }
             string cultureName = null;
             if (culture != null)
             {
@@ -72,8 +68,19 @@ namespace WebFormsDBI18NDemo
                 cultureName = CultureInfo.CurrentUICulture.Name;
             }
 
+            if (log.IsDebugEnabled)
+            {
+                log.Debug("Getting resource provider for resource key " + resourceKey + " and culture " + cultureName);
+            }
+
             object value = GetResourceCache(cultureName)[resourceKey];
-            // if the value is not found, we need to get the cache for culterName minus the country and look for the key again, if it's not found, then we need to look for the default
+            // if the value is not found and the culture is language-country, then try just language
+            // TODO
+            // if the value is not found, try no culture
+            if (value == null)
+            {
+                value = GetResourceCache(null)[resourceKey];
+            }
             return value;
         }
 
