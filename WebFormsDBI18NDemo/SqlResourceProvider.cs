@@ -88,7 +88,13 @@ namespace WebFormsDBI18NDemo
         {
             get
             {
-                return new SqlResourceReader(GetResourceCache(null));
+                string cultureName = null;
+                CultureInfo currentUICulture = CultureInfo.CurrentUICulture;
+                if (!String.Equals(currentUICulture.Name, CultureInfo.InstalledUICulture.Name))
+                {
+                    cultureName = currentUICulture.Name;
+                }
+                return new SqlResourceReader(GetResourceCache(cultureName));
             }
         }
     }
