@@ -1,12 +1,6 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Compilation;
 using System.Globalization;
-using System.Data.SqlClient;
-using System.Collections.Specialized;
 using System.Resources;
 using log4net;
 
