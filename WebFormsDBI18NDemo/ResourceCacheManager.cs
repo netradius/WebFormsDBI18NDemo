@@ -7,10 +7,10 @@ namespace WebFormsDBI18NDemo
     public class ResourceCacheManager
     {
         // Remember this isn't really a true singlement in ASP.NET because you can have multiple worker processes
-        private static ResourceCacheManager _instance;
+        private static ResourceCacheManager instance;
 
         static ILog log = LogManager.GetLogger(typeof(ResourceCacheManager));
-        private IDictionary _caches = new HybridDictionary();
+        private IDictionary caches = new HybridDictionary();
 
         private ResourceCacheManager() { }
 
@@ -18,18 +18,22 @@ namespace WebFormsDBI18NDemo
         {
             get
             {
-                if (_instance == null)
+                if (instance == null)
                 {
-                    _instance = new ResourceCacheManager();
+                    instance = new ResourceCacheManager();
                 }
-                return _instance;
+                return instance;
             }
         }
 
         public IDictionary GetResourceCache(string virtualPath, string className, string cultureName)
         {
+            if (log.IsDebugEnabled)
+            {
+                log.Debug("Looking up cache for virtual path: " + virtualPath + " class name: " + className + " culture name: " + cultureName);
+            }
             string idx = cultureName == null ? "noculture" : cultureName;
-            IDictionary cache = (IDictionary)_caches[idx];
+            IDictionary cache = (IDictionary)this.caches[idx];
             if (cache == null)
             {
                 cache = SqlResourceHelper.GetResources(virtualPath, className, cultureName, false, null);
