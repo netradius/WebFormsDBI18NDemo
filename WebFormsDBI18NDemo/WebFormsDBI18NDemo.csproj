@@ -135,6 +135,7 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ResourceCacheManager.cs" />
     <Compile Include="SqlResourceHelper.cs" />
     <Compile Include="SqlResourceProvider.cs" />
     <Compile Include="SqlResourceProviderFactory.cs" />
