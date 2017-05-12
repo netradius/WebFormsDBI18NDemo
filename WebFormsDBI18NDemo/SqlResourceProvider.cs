@@ -75,7 +75,11 @@ namespace WebFormsDBI18NDemo
 
             object value = GetResourceCache(cultureName)[resourceKey];
             // if the value is not found and the culture is language-country, then try just language
-            // TODO
+            if (value == null)
+            {
+                string[] cultureInfo = cultureName.Split('-');
+                value = GetResourceCache(cultureInfo[0])[resourceKey];
+            }
             // if the value is not found, try no culture
             if (value == null)
             {
