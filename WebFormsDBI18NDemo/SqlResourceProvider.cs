@@ -26,36 +26,6 @@ namespace WebFormsDBI18NDemo
             this.className = className;
         }
 
-        //private IDictionary GetResourceCache(string cultureName)
-        //{
-        //    if (log.IsDebugEnabled)
-        //    {
-        //        log.Debug("Getting resource cache for culture name: " + cultureName);
-        //    }
-        //    object cultureKey;
-        //    if (cultureName != null)
-        //    {
-        //        cultureKey = cultureName;
-        //    }
-        //    else
-        //    {
-        //        cultureKey = CultureNeutralKey;
-        //    }
-
-        //    //if (_resourceCache == null)
-        //    //{
-        //        _resourceCache = new ListDictionary();
-        //    //}
-        //    IDictionary resourceDict = _resourceCache[cultureKey] as IDictionary;
-        //    if (resourceDict == null)
-        //    {
-        //        resourceDict = SqlResourceHelper.GetResources(_virtualPath,
-        //                      _className, cultureName, false, null);
-        //        _resourceCache[cultureKey] = resourceDict;
-        //    }
-        //    return resourceDict;
-        //}
-
         object IResourceProvider.GetObject(string resourceKey, CultureInfo culture)
         {
             string cultureName = null;
