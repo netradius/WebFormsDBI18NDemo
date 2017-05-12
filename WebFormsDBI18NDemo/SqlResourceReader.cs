@@ -11,17 +11,21 @@ namespace WebFormsDBI18NDemo
         {
             _resources = resources;
         }
+
         IDictionaryEnumerator IResourceReader.GetEnumerator()
         {
             return _resources.GetEnumerator();
         }
+
         void IResourceReader.Close()
         {
         }
+
         IEnumerator IEnumerable.GetEnumerator()
         {
             return _resources.GetEnumerator();
         }
+
         void IDisposable.Dispose()
         {
         }
