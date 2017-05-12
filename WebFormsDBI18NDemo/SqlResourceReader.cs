@@ -6,15 +6,15 @@ namespace WebFormsDBI18NDemo
 {
     public class SqlResourceReader : IResourceReader
     {
-        private IDictionary _resources;
+        private IDictionary resources;
         public SqlResourceReader(IDictionary resources)
         {
-            _resources = resources;
+            this.resources = resources;
         }
 
         IDictionaryEnumerator IResourceReader.GetEnumerator()
         {
-            return _resources.GetEnumerator();
+            return this.resources.GetEnumerator();
         }
 
         void IResourceReader.Close()
@@ -23,7 +23,7 @@ namespace WebFormsDBI18NDemo
 
         IEnumerator IEnumerable.GetEnumerator()
         {
-            return _resources.GetEnumerator();
+            return this.resources.GetEnumerator();
         }
 
         void IDisposable.Dispose()
