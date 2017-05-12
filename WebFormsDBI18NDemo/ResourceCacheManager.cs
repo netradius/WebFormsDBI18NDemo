@@ -26,6 +26,10 @@ namespace WebFormsDBI18NDemo
 
         public IDictionary GetResourceCache(string virtualPath, string className, string cultureName)
         {
+            if (cultureName == null)
+            {
+                cultureName = "noculture";
+            }
             IDictionary cache = (IDictionary)_caches[cultureName];
             if (cache == null)
             {
