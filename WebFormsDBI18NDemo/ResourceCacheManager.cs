@@ -33,6 +33,7 @@ namespace WebFormsDBI18NDemo
                 log.Debug("Looking up cache for virtual path: " + virtualPath + " class name: " + className + " culture name: " + cultureName);
             }
             string idx = cultureName == null ? "noculture" : cultureName;
+            // TODO Technically this is not a thread safe operation if the current list is being iterated upon
             IDictionary cache = (IDictionary)this.caches[idx];
             if (cache == null)
             {
@@ -40,6 +41,13 @@ namespace WebFormsDBI18NDemo
                 cache[idx] = cache;
             }
             return cache;
+        }
+
+        public void ClearCache(string cultureName)
+        {
+            // TODO Technically this is not a thread safe operation if the current list is being iterated upon 
+            string idx = cultureName == null ? "noculture" : cultureName;
+            this.caches.Remove(idx);
         }
     }
 }
