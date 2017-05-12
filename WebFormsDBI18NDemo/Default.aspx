@@ -41,8 +41,8 @@
                         <asp:ListBox ID="ListBox1" CssClass="form-control locale-selector" runat="server">
                             <asp:ListItem Value="">Default Locale</asp:ListItem>
                             <asp:ListItem Value="en-US">English - United States - en-US</asp:ListItem>
-                            <asp:ListItem Value="es-US">Espanol - United States - es-US</asp:ListItem>
-                            <asp:ListItem Value="es">Espanol - es</asp:ListItem>
+                            <asp:ListItem Value="es-MX">Espanol - Mexico - es-MX</asp:ListItem>
+                            <asp:ListItem Value="es-ES">Espanol - Spain - es-ES</asp:ListItem>
                             <asp:ListItem Value="en-GB">English - United Kingdom - en-GB</asp:ListItem>
                         </asp:ListBox>
                         <br />
